@@ -1,6 +1,11 @@
 import {products} from '../data/products.js';
 
-export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+export let cart;
+
+getFromStorage();
+export function getFromStorage() {
+  cart = JSON.parse(localStorage.getItem('cart')) || [];
+}
 
 
 function saveLocalStorage() {
@@ -19,14 +24,13 @@ function updateHeader() {
   document.querySelector('.total-amt').innerHTML = `${calculateCartQuantity()} items`;
 }
 
-export function addToCart(productId) {
+export function addToCart(productId, quant) {
   let matchingItem;
   cart.forEach((item) => {
     if (productId === item.productId) {
       matchingItem = item;
     }
   });
-  const quant = Number(document.querySelector(`.js-quantity-select-${productId}`).value);
   if (matchingItem) {
     matchingItem.quantity += quant;
   } else {

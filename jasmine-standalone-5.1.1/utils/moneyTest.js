@@ -1,4 +1,4 @@
-import { priceFormat } from "../scripts/utils/money.js";
+import { priceFormat } from "../../scripts/utils/money.js";
 
 describe(('priceFormat'), () => {
   it(('general test'), () => {

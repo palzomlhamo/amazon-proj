@@ -9,13 +9,10 @@ export function renderPayment() {
   let shippingCost = 0;
   cart.forEach((cartItem) => {
     let product = getProduct(cartItem.productId);
-    console.log(product.priceCents);
-    console.log(cartItem.quantity);
     totalCost += product.priceCents * cartItem.quantity;
     let deliveryOption = getDeliveryOption(cartItem.deliveryID);
     shippingCost += deliveryOption.priceCents;
   });
-  console.log(totalCost);
   let totalNoTax = totalCost + shippingCost;
   let estimatedTax = totalNoTax * 0.10;
   let orderTotal = totalNoTax + estimatedTax;
