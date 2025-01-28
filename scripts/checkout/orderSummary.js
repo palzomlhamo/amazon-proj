@@ -34,7 +34,7 @@ export function renderCheckout() {
             ${matchingProduct.name}
           </div>
           <div class="product-price">
-            $${priceFormat(matchingProduct.priceCents)}
+            ${matchingProduct.getPrice()}
           </div>
           <div class="product-quantity">
             <span>
